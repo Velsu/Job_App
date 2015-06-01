@@ -1,0 +1,16 @@
+= simple_form_for(@job, html: {class: 'form-horizontal'}) do |f|
+	- if @job.errors.any?
+		#errors
+			%p
+				= pluralize(@job.errors.count, "error")
+				Prevented the form from saving
+			%ul
+				- @job.errors.full_messages.each do |msg|
+					%li= msg
+	.panel-body
+		= f.input :title, label: "Job Title"
+		= f.input :description, label: "Job Description"
+		= f.input :company, label: "Company Name"
+		= f.input :url, label: "Job Link"
+	%br	
+	= f.button :submit, class: "btn btn-primary"
