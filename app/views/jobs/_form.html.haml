@@ -8,7 +8,7 @@
 				- @job.errors.full_messages.each do |msg|
 					%li= msg
 	.panel-body
-		= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}
+		= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}, input_html: {class: "dropdown-toggle"}
 		= f.input :title, label: "Job Title"
 		= f.input :description, label: "Job Description"
 		= f.input :company, label: "Company Name"
