@@ -1,0 +1,21 @@
+!!! 5
+
+%html
+%head
+	%title TodoApp
+	= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+	= stylesheet_link_tag "http://fonts.googleapis.com/css?family=Lato:300,400,700"
+	= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+
+%body
+	= link_to "All", jobs_path
+	- Category.all.each do |category|
+		= link_to category.name, jobs_path(category: category.name)
+
+	
+
+	.container
+		= yield
+
